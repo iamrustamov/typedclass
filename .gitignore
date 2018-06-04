@@ -1,0 +1,10 @@
+.idea
+__pycache__
+.tox
+*.sublime-*
+.cache
+*.egg-info
+*.pyc
+.coverage
+htmlcov
+.pytest_cache

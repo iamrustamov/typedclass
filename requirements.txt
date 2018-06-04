@@ -1,0 +1,14 @@
+Jinja2>=2,<3
+PyContracts>=1,<2
+coverage>=4,<5
+datadiff>=2,<3
+lxml>=3,<5
+msgpack-python>=0.4,<1
+orderedset>=2,<3
+pluggy>=0.4,<1
+py>=1.4,<2
+pytest>=3,<4
+pytest-cov>=2.4,<3
+tox>=2.5,<3
+virtualenv>=15,<16
+ujson>=1,<2

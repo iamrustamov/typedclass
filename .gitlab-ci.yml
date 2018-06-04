@@ -1,0 +1,21 @@
+
+stages:
+  - test
+  - publish
+
+
+test:3.5:
+  image: python:3.5
+  stage: test
+  variables:
+    http_proxy: "http://10.63.3.66:8118/"
+  script:
+    - pip install tox
+    - tox -e py35
+
+
+publish:
+  image: python:3.5
+  stage: publish
+  script:
+    - curl --fail https://gitlab.ostrovok.ru/ostrovok/docker-pypiserver/raw/master/publish.sh | bash

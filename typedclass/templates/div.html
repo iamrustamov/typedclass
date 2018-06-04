@@ -1,0 +1,43 @@
+<div>
+    {% for entry in typedclass_html.entries %}
+        <div id="{{ entry.class_name }}">
+            <h2>{{ entry.class_name }}</h2>
+            <table cellpadding="5" cellspacing="5">
+                <tr>
+                    <th>field</th>
+                    <th>type</th>
+                    <th>properties</th>
+                </tr>
+                {% for field in entry.fields %}
+                    <tr>
+                        <td rowspan="3">{{ field.name }}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">
+                            {{ field.ftype }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="inner">
+                                {% for key, value in field.properties.items() %}
+                                    {% if value not in (none, ()) %}
+                                        <tr>
+                                            <td>
+                                                {% if key == 'cls_name' and value not in ('Bool', 'Date', 'DateTime', 'Decimal', 'Int', 'Float', 'String', 'Time', 'List', 'Ref', 'Set', 'RawMap', 'TypedMap', 'RawList') %}
+                                                    {{ key }}: <a href="#{{ value }}">{{ value }}</a>
+                                                {% else %}
+                                                    {{ key }}: {{ value }}
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+</div>
